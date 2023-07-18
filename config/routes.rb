@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  namespace :staff do
+    root "top#index"
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :admin do
+    root "top#index"
+  end
+
+  namespace :customer do
+    root "top#index"
+  end
 end
