@@ -83,3 +83,5 @@ gem "webpacker", "~> 5.0"
 gem "net-http"
 gem "slim-rails"
 gem "html2slim"
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
