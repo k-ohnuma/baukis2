@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_18_124545) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_19_113445) do
   create_table "staff_members", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -19,10 +19,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_18_124545) do
     t.string "given_name", null: false
     t.string "family_name_kana", null: false
     t.string "given_name_kana", null: false
-    t.string "hashed_password"
     t.date "start_date", null: false
     t.date "end_date"
     t.boolean "suspended", default: false, null: false
+    t.string "password_digest", null: false
     t.index "LOWER(email)", name: "index_staff_members_on_LOWER_email", unique: true
     t.index ["family_name_kana", "given_name_kana"], name: "index_staff_members_on_family_name_kana_and_given_name_kana"
   end

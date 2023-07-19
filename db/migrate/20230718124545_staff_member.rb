@@ -14,6 +14,7 @@ class StaffMember < ActiveRecord::Migration[7.0]
     #Ex:- :null => false
 
     #Ex:- :null => false
+    
     add_index :staff_members, "LOWER(email)", unique: true
     add_index :staff_members, [:family_name_kana, :given_name_kana]
   end
