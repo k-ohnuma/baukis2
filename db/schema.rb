@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_19_113445) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_19_134842) do
+  create_table "administrators", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email", null: false
+    t.string "password_digest"
+    t.boolean "suspended", default: false, null: false
+    t.index "lower(email)", name: "index_administrators_on_lower_email", unique: true
+  end
+
   create_table "staff_members", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

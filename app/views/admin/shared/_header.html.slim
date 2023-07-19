@@ -1,0 +1,7 @@
+nav.navbar.navbar-dark.bg-success
+  div.container-fluid
+    = link_to "baukis2", "/", class: "navbar-brand"
+    - if current_administrator
+      = link_to "ログアウト", :admin_session, method: delete
+    - else
+      = link_to "ログイン", :admin_login, class: "btn", style: "color: white;"
