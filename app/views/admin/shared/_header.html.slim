@@ -1,7 +1,9 @@
 nav.navbar.navbar-dark.bg-success
   div.container-fluid
     = link_to "baukis2", "/", class: "navbar-brand"
+    = content_tag(:span, flash.notice, class: "notice", style: "color: white;") if flash.notice
+    = content_tag(:span, flash.alert, class: "alert", style: "color: white;") if flash.alert
     - if current_administrator
-      = link_to "ログアウト", :admin_session, method: delete
+      = link_to "ログアウト", :admin_session, data: {turbo_method: :delete}
     - else
       = link_to "ログイン", :admin_login, class: "btn", style: "color: white;"

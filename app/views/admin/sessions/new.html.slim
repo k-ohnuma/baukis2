@@ -1,0 +1,12 @@
+- @title = "admin login page"
+
+div.container
+  = form_with model: @form, url: :admin_session do |f|
+    div
+      = f.label "メールアドレス : "
+      = f.text_field :email
+    div
+      = f.label "パスワード："
+      = f.password_field :password
+    div
+      = f.submit "ログイン"
