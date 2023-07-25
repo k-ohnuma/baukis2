@@ -1,0 +1,30 @@
+- @title = "職員管理"
+
+div.container
+  div.links
+    = link_to "新規登録", :new_admin_staff_member
+  table.listing
+    tr
+      th 氏名
+      th フリガナ
+      th メールアドレス
+      th 入社日
+      th 退職日
+      th アクション
+    - @staff_members.each do |sm|
+      tr
+        td 
+          = "#{sm.family_name} #{sm.given_name}"
+        td 
+          = "#{sm.family_name_kana} #{sm.given_name_kana}"
+        td 
+          = "#{sm.email}"
+        td 
+          = "#{sm.start_date}"
+        td 
+          = "#{sm.end_date}"
+        td
+          = link_to "編集", [:edit, :admin, sm]
+          = link_to "削除", [:admin, sm], data: {turbo_method: :delete, confirm: "本当に削除してもいいの?"}
+  div.links
+    = link_to "新規登録", :new_admin_staff_member

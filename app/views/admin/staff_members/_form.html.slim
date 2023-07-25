@@ -1,0 +1,24 @@
+div
+  = f.label :email, "めーるあどれす", class: "required"
+  = f.email_field :email
+- if f.object.new_record?
+  div
+    = f.label :password, "パスワード", class: "required"
+    = f.password_field :password
+div
+  = f.label :family_name, "氏名", class: "required"
+  = f.text_field :family_name
+  = f.text_field :given_name
+div
+  = f.label :family_name_kana, "フリガナ", class: "required"
+  = f.text_field :family_name_kana
+  = f.text_field :given_name_kana
+div
+  = f.label :start_date, "入社日"
+  = f.date_field :start_date
+div
+  = f.label :end_date, "退職日"
+  = f.date_field :end_date
+div
+  = f.check_box :suspended
+  = f.label :suspended, "アカウント停止"

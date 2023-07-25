@@ -4,7 +4,7 @@ class Admin::SessionsController < Admin::Base
       redirect_to :admin_root
     else
       @form = Admin::LoginForm.new
-      render :new
+      render "new"
     end
   end
   def create
@@ -18,7 +18,7 @@ class Admin::SessionsController < Admin::Base
       redirect_to :admin_root
     else
       flash.notice = "ログイン失敗..."
-      render :new
+      render "new"
     end
   end
   def destroy
