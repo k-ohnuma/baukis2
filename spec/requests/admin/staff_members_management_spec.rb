@@ -15,4 +15,26 @@ describe "管理者による職員管理" do
       expect {post admin_staff_members_url}.to raise_error(ActionController::ParameterMissing)
     end
   end
+
+  describe "更新" do
+    let(:staff_member) {FactoryBot.create(:staff_member)}
+    let(:params_hash) {FactoryBot.attributes_for(:staff_member)}
+
+    example "suspendedフラグをセットする" do
+      params_hash.merge!(suspended: true)
+      patch admin_staff_member_url(staff_member),
+        params: {staff_member: params_hash}
+      staff_member.reload
+      expect(staff_member).to be_suspended
+    end
+
+    example "hashed_passwordの値は書き換えできない" do
+      params_hash.delete(:password)
+      params_hash.merge!(password_digest: "x")
+      expect{
+        patch admin_staff_member_url(staff_member),
+          params: {staff_member: params_hash}
+      }.not_to change{staff_member.password_digest.to_s}
+    end
+  end
 end

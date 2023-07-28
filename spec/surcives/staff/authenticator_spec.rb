@@ -23,7 +23,7 @@ describe Staff::Authenticator do
     end
 
     example "開始前ならfalse" do
-      m = FactoryBot.build(:staff_member, start_date: Date.tomorrow)
+      m = FactoryBot.build(:staff_member, start_date: Date.today.next_month)
       expect(Staff::Authenticator.new(m).authenticate("pass")).to be_falsey
     end
 
