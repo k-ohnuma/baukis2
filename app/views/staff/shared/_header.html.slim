@@ -7,3 +7,4 @@ nav.navbar.navbar-dark.bg-success
       = link_to "ログアウト", :staff_session, data: {turbo_method: :delete}
     - else
       = link_to "ログイン", :staff_login, class: "btn", style: "color: white;"
+    = link_to "アカウント", :staff_account if current_staff_member

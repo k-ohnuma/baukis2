@@ -9,9 +9,10 @@ class Staff::SessionsController < Staff::Base
   end
   
   def create
-    @form = Staff::LoginForm.new(login_form_params) if @form.email.present?
+    puts login_form_params[:email]
+    @form = Staff::LoginForm.new(login_form_params) if login_form_params[:email].present?
       staff_member = StaffMember.find_by("lower(email) = ?", @form.email.downcase)
-    end
+    
     if Staff::Authenticator.new(staff_member).authenticate(@form.password)
       session[:staff_member_id] = staff_member.id
       flash.notice = "ログインしました"
@@ -29,8 +30,7 @@ class Staff::SessionsController < Staff::Base
   end
 
   private
-    def login_form_params
-      params.require(:staff_login_form).permit(:email, :password)
-    end
-
+  def login_form_params
+    params.require(:staff_login_form).permit(:email, :password)
+  end
 end
