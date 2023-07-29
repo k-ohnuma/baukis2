@@ -1,7 +1,19 @@
 require "rails_helper"
 
+describe "管理者による職員管理", "ログイン前" do
+  include_examples "a protected admin controller", "admin/staff_members"
+end
+
 describe "管理者による職員管理" do
-  let(:Administrator) {create(:administrator)}
+  let(:administrator) {FactoryBot.create(:administrator)}
+
+  before do
+    post admin_session_url,
+    params: {admin_login_form: {
+      email: administrator.email,
+      password: "pass"
+    }}
+  end
 
   describe "新規登録" do
     let(:params_hash) {FactoryBot.attributes_for(:staff_member)}
