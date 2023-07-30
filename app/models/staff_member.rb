@@ -1,4 +1,5 @@
 class StaffMember < ApplicationRecord
+  has_many :staff_events, dependent: :destroy
   has_secure_password
   # def password=(raw_password)
   #   if raw_password.kind_of?(String)

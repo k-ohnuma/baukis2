@@ -25,6 +25,9 @@ div.container
           = "#{sm.end_date}"
         td
           = link_to "編集", [:edit, :admin, sm]
+          |  | 
+          = link_to "events", [:admin, sm, :staff_events]
+          |  | 
           = link_to "削除", [:admin, sm], data: {turbo_method: :delete, confirm: "本当に削除してもいいの?"}
   div.links
     = link_to "新規登録", :new_admin_staff_member
