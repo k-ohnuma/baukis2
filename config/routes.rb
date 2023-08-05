@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resource :account, expect: [:new, :create, :destroy]
     # post "session" => "sessions#create", as: :session
     # delete "session" => "sessions#destroy" 
+    resource :password, only: [:show, :edit, :update]
   end
 
   namespace :admin do
