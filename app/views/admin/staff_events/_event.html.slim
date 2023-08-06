@@ -1,0 +1,8 @@
+tr
+  - unless @staff_member
+    td
+      = link_to(event.member.family_name +  event.member.given_name, [:admin, event.member, :staff_events])
+  td
+    = event.description
+  td
+    = event.occurred_at

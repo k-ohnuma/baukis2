@@ -1,0 +1,33 @@
+- @title = "顧客管理"
+
+div.table-wrapper
+  = link_to "新規登録", :new_staff_customer
+
+  = paginate @customers
+  table.table
+    tr
+      th 氏名
+      th フリガナ
+      th メールアドレス
+      th 生年月日
+      th 性別
+      th アクション
+    - @customers.each do |c|
+      - p = CustomerPresenter.new(c, self)
+      tr
+        td
+          = p.full_name
+        td
+          = p.full_name_kana
+        td
+          = p.email
+        td
+          = p.birthday
+        td
+          = p.gender
+        td
+          = link_to "詳細" ,[:staff, c]
+          = " | "
+          = link_to "編集", [:edit, :staff, c]
+          = " | "
+          = link_to "削除", [:staff, c], method: :delete

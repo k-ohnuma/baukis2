@@ -1,0 +1,12 @@
+- @title = "ログイン"
+
+div.container
+  = form_with model: @form, url: :staff_session, local: true do |f|
+    div
+      = f.label :email, "メールアドレス"
+      = f.text_field :email
+    div
+      = f.label :password, "パスワード"
+      = f.password_field :password
+    div
+      = f.submit "ログイン"

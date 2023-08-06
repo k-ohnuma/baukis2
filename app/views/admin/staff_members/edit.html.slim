@@ -1,0 +1,8 @@
+- @title = "職員アカウントの編集"
+
+div.container
+  = form_with model: @staff_member, url: [:admin, @staff_member] do |f|
+    = render "form", f:f
+    div.btn
+      = f.submit "更新"
+      = link_to "キャンセル", :admin_staff_members

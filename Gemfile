@@ -64,7 +64,7 @@ group :development do
   # gem "spring"
 end
 
-group :test do
+group :test, :development do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
@@ -83,3 +83,5 @@ gem "webpacker", "~> 5.0"
 gem "net-http"
 gem "slim-rails"
 gem "html2slim"
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
