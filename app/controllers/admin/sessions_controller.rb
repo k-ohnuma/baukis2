@@ -18,8 +18,10 @@ class Admin::SessionsController < Admin::Base
       flash.notice = "管理者としてログインしました！"
       redirect_to :admin_root
     else
-      flash.notice = "ログイン失敗..."
-      render "new"
+      # flash.notice = "ログイン失敗...desu"
+      flash.now[:alert] = "ログイン失敗です。"
+      # @flash_alert = "ログインに失敗しました"
+      render :new
     end
   end
   def destroy

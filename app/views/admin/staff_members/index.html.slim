@@ -12,6 +12,7 @@ div.container
       th 退職日
       th アクション
     - @staff_members.each do |sm|
+      - p = StaffMemberPresenter.new(sm, self)
       tr
         td 
           = "#{sm.family_name} #{sm.given_name}"
@@ -23,6 +24,8 @@ div.container
           = "#{sm.start_date}"
         td 
           = "#{sm.end_date}"
+        td
+          = p.suspended_mark
         td
           = link_to "編集", [:edit, :admin, sm]
           |  | 

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     # post "session" => "sessions#create", as: :session
     # delete "session" => "sessions#destroy" 
     resource :password, only: [:show, :edit, :update]
+    resources :customers
   end
 
   namespace :admin do
