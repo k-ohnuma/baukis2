@@ -28,6 +28,7 @@ given_names = %w(
 )
 
 company_names = %w(ABC HAW XYZ)
+division_names = %w(エンジニア えん転職 社長)
 
 10.times do |n|
   10.times do |m|
@@ -54,6 +55,8 @@ company_names = %w(ABC HAW XYZ)
 
     if m % 3 == 0
       c.create_work_address(
+        company_name: company_names.sample,
+        division_name: division_names.sample,
         postal_code: sprintf("%07d", rand(10000000)),
         prefecture: Address::PREFECTURE_NAMES.sample,
         city: city_names.sample,
